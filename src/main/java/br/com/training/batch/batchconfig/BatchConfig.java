@@ -9,6 +9,7 @@ import org.springframework.batch.core.configuration.annotation.DefaultBatchConfi
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
@@ -30,16 +31,13 @@ public class BatchConfig extends DefaultBatchConfigurer {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-    @Override
-    public void setDataSource(DataSource dataSource) {
-
-    }
 
     @Bean
     public Job imprimeOJob(){
         return  jobBuilderFactory
                 .get("imprimeOJob")
                 .start(imprimeOlaStep())
+                .incrementer(new RunIdIncrementer()) // permite a execução de um job mais de uma vez sempre incrementando novas infos
                 .build();
     }
 

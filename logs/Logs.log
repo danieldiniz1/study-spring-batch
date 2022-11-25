@@ -1,562 +1,228 @@
-[2022-11-15T19:39:50.050Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 4776 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:39:50.050Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:39:51.051Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:39:51.051Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:39:51.051Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:40:25.025Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 3200 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:40:25.025Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:40:26.026Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:40:26.026Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:40:26.026Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:40:26.026Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:40:28.028Z] [com.zaxxer.hikari.pool.HikariPool] [main] [594] [ERROR] HikariPool-1 - Exception during pool initialization.
-java.sql.SQLException: Access denied for user 'danie'@'localhost' (using password: NO)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159)
-	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117)
-	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
-	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:337)
-	at org.springframework.boot.jdbc.DatabaseDriver.fromDataSource(DatabaseDriver.java:329)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:137)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:131)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:121)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.resolveSchemaLocations(BatchDataSourceScriptDatabaseInitializer.java:86)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.getSettings(BatchDataSourceScriptDatabaseInitializer.java:73)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.<init>(BatchDataSourceScriptDatabaseInitializer.java:48)
-	at org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration.batchDataSourceInitializer(BatchAutoConfiguration.java:116)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at br.com.training.batch.BatchApplication.main(BatchApplication.java:10)
-[2022-11-15T19:40:28.028Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception; nested exception is java.lang.IllegalStateException: Unable to detect database type
-[2022-11-15T19:40:28.028Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:40:28.028Z] [org.springframework.boot.SpringApplication] [main] [824] [ERROR] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception; nested exception is java.lang.IllegalStateException: Unable to detect database type
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at br.com.training.batch.BatchApplication.main(BatchApplication.java:10)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception; nested exception is java.lang.IllegalStateException: Unable to detect database type
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
-	... 20 common frames omitted
-Caused by: java.lang.IllegalStateException: Unable to detect database type
-	at org.springframework.util.Assert.state(Assert.java:76)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:132)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:121)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.resolveSchemaLocations(BatchDataSourceScriptDatabaseInitializer.java:86)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.getSettings(BatchDataSourceScriptDatabaseInitializer.java:73)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.<init>(BatchDataSourceScriptDatabaseInitializer.java:48)
-	at org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration.batchDataSourceInitializer(BatchAutoConfiguration.java:116)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
-	... 21 common frames omitted
-[2022-11-15T19:42:05.005Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 16664 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:42:05.005Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:42:06.006Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:42:06.006Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:42:06.006Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:42:54.054Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 23736 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:42:54.054Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:42:55.055Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:42:55.055Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:42:55.055Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:43:30.030Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 16804 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:43:30.030Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:43:31.031Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:43:31.031Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:43:31.031Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:44:21.021Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 21332 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:44:21.021Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:44:22.022Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:44:22.022Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:44:22.022Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:44:58.058Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 23772 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:44:58.058Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:44:59.059Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:44:59.059Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:44:59.059Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:45:09.009Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 20592 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:45:09.009Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:45:10.010Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:45:10.010Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:45:10.010Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:46:02.002Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 22800 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:46:02.002Z] [org.springframework.boot.SpringApplication] [main] [634] [INFO ] No active profile set, falling back to 1 default profile: "default"
-[2022-11-15T19:46:03.003Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:46:03.003Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:46:03.003Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-[2022-11-15T19:48:10.010Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 10876 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:48:10.010Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "test"
-[2022-11-15T19:48:11.011Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:48:11.011Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:48:11.011Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (the profiles test are currently active).
-
-[2022-11-15T19:48:20.020Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 24264 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:48:20.020Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "test"
-[2022-11-15T19:48:21.021Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchConfig': Unsatisfied dependency expressed through field 'jobBuilderFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration': Unsatisfied dependency expressed through field 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-[2022-11-15T19:48:21.021Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:48:21.021Z] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [main] [40] [ERROR] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (the profiles test are currently active).
-
-[2022-11-15T19:48:33.033Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 292 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:48:33.033Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:48:34.034Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:48:34.034Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:48:34.034Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:48:34.034Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:48:35.035Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
-[2022-11-15T19:48:35.035Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.499 seconds (JVM running for 3.103)
-[2022-11-15T19:48:35.035Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
-[2022-11-15T19:48:35.035Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
-[2022-11-15T19:48:35.035Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
-[2022-11-15T19:48:35.035Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
-[2022-11-15T19:48:35.035Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 18ms
-[2022-11-15T19:48:35.035Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 33ms
-[2022-11-15T19:48:36.036Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
-[2022-11-15T19:48:36.036Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
-[2022-11-15T19:49:10.010Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 19888 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:49:10.010Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:49:11.011Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:49:11.011Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:49:11.011Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:49:11.011Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:49:12.012Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
-[2022-11-15T19:49:12.012Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.297 seconds (JVM running for 2.925)
-[2022-11-15T19:49:12.012Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
-[2022-11-15T19:49:12.012Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
-[2022-11-15T19:49:12.012Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
-[2022-11-15T19:49:12.012Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
-[2022-11-15T19:49:12.012Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 20ms
-[2022-11-15T19:49:12.012Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 36ms
-[2022-11-15T19:49:12.012Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
-[2022-11-15T19:49:12.012Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
-[2022-11-15T19:49:33.033Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 23200 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:49:33.033Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:49:34.034Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:49:34.034Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:49:34.034Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:49:34.034Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:49:36.036Z] [com.zaxxer.hikari.pool.HikariPool] [main] [594] [ERROR] HikariPool-1 - Exception during pool initialization.
-java.sql.SQLException: Access denied for user 'danie'@'localhost' (using password: NO)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159)
-	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117)
-	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
-	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:337)
-	at org.springframework.boot.jdbc.DatabaseDriver.fromDataSource(DatabaseDriver.java:329)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:137)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:131)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:121)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.resolveSchemaLocations(BatchDataSourceScriptDatabaseInitializer.java:86)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.getSettings(BatchDataSourceScriptDatabaseInitializer.java:73)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.<init>(BatchDataSourceScriptDatabaseInitializer.java:48)
-	at org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration.batchDataSourceInitializer(BatchAutoConfiguration.java:116)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at br.com.training.batch.BatchApplication.main(BatchApplication.java:10)
-[2022-11-15T19:49:36.036Z] [org.springframework.context.support.AbstractApplicationContext] [main] [591] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception; nested exception is java.lang.IllegalStateException: Unable to detect database type
-[2022-11-15T19:49:36.036Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[2022-11-15T19:49:36.036Z] [org.springframework.boot.SpringApplication] [main] [824] [ERROR] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception; nested exception is java.lang.IllegalStateException: Unable to detect database type
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at br.com.training.batch.BatchApplication.main(BatchApplication.java:10)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception; nested exception is java.lang.IllegalStateException: Unable to detect database type
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
-	... 20 common frames omitted
-Caused by: java.lang.IllegalStateException: Unable to detect database type
-	at org.springframework.util.Assert.state(Assert.java:76)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:132)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:121)
-	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:96)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.resolveSchemaLocations(BatchDataSourceScriptDatabaseInitializer.java:86)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.getSettings(BatchDataSourceScriptDatabaseInitializer.java:73)
-	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.<init>(BatchDataSourceScriptDatabaseInitializer.java:48)
-	at org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration.batchDataSourceInitializer(BatchAutoConfiguration.java:116)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
-	... 21 common frames omitted
-[2022-11-15T19:50:21.021Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 15024 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:50:21.021Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:50:22.022Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:50:22.022Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:50:22.022Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:50:22.022Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:50:23.023Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
-[2022-11-15T19:50:23.023Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.276 seconds (JVM running for 2.843)
-[2022-11-15T19:50:23.023Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
-[2022-11-15T19:50:23.023Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
-[2022-11-15T19:50:23.023Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
-[2022-11-15T19:50:23.023Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
-[2022-11-15T19:50:23.023Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 28ms
-[2022-11-15T19:50:23.023Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 50ms
-[2022-11-15T19:50:23.023Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
-[2022-11-15T19:50:23.023Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
-[2022-11-15T19:52:46.046Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 12908 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:52:46.046Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:52:47.047Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:52:47.047Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:52:47.047Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:52:47.047Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:52:48.048Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
-[2022-11-15T19:52:48.048Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.474 seconds (JVM running for 3.121)
-[2022-11-15T19:52:48.048Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
-[2022-11-15T19:52:48.048Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
-[2022-11-15T19:52:48.048Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
-[2022-11-15T19:52:48.048Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
-[2022-11-15T19:52:48.048Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 18ms
-[2022-11-15T19:52:48.048Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 35ms
-[2022-11-15T19:52:48.048Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
-[2022-11-15T19:52:48.048Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
-[2022-11-15T19:55:17.017Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 21120 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:55:17.017Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:55:18.018Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:55:18.018Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:55:18.018Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:55:18.018Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:55:19.019Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
-[2022-11-15T19:55:19.019Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.612 seconds (JVM running for 3.805)
-[2022-11-15T19:55:19.019Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
-[2022-11-15T19:55:19.019Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
-[2022-11-15T19:55:19.019Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
-[2022-11-15T19:55:19.019Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
-[2022-11-15T19:55:20.020Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 21ms
-[2022-11-15T19:55:20.020Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 37ms
-[2022-11-15T19:55:20.020Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
-[2022-11-15T19:55:20.020Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
-[2022-11-15T19:57:18.018Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 20204 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
-[2022-11-15T19:57:18.018Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
-[2022-11-15T19:57:19.019Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
-[2022-11-15T19:57:19.019Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
-[2022-11-15T19:57:19.019Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
-[2022-11-15T19:57:19.019Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
-[2022-11-15T19:57:20.020Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
-[2022-11-15T19:57:20.020Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.35 seconds (JVM running for 2.936)
-[2022-11-15T19:57:20.020Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
-[2022-11-15T19:57:20.020Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
-[2022-11-15T19:57:20.020Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
-[2022-11-15T19:57:20.020Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
-[2022-11-15T19:57:20.020Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 18ms
-[2022-11-15T19:57:20.020Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 33ms
-[2022-11-15T19:57:20.020Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
-[2022-11-15T19:57:20.020Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T12:50:17.017Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 8928 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T12:50:17.017Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T12:50:19.019Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
+[2022-11-25T12:50:19.019Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
+[2022-11-25T12:50:19.019Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T12:50:19.019Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T12:50:20.020Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T12:50:20.020Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 4.002 seconds (JVM running for 32.359)
+[2022-11-25T12:50:20.020Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T12:50:20.020Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T12:50:20.020Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T12:50:20.020Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
+[2022-11-25T12:50:20.020Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 41ms
+[2022-11-25T12:50:20.020Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 72ms
+[2022-11-25T12:50:20.020Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T12:50:21.021Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T12:52:22.022Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 3540 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T12:52:22.022Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T12:52:23.023Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
+[2022-11-25T12:52:23.023Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
+[2022-11-25T12:52:23.023Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T12:52:23.023Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T12:52:24.024Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T12:52:24.024Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 2.674 seconds (JVM running for 3.39)
+[2022-11-25T12:52:24.024Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T12:52:24.024Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T12:52:24.024Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T12:52:24.024Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
+[2022-11-25T12:52:24.024Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 22ms
+[2022-11-25T12:52:24.024Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 40ms
+[2022-11-25T12:52:24.024Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T12:52:24.024Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T12:58:58.058Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 34052 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T12:58:58.058Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T12:58:58.058Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T12:58:59.059Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+[2022-11-25T12:58:59.059Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T12:59:00.000Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T12:59:00.000Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T12:59:00.000Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T12:59:01.001Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T12:59:01.001Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T12:59:01.001Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T12:59:01.001Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T12:59:01.001Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
+[2022-11-25T12:59:01.001Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
+[2022-11-25T12:59:01.001Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T12:59:02.002Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 4.656 seconds (JVM running for 8.443)
+[2022-11-25T12:59:02.002Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T12:59:02.002Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T12:59:02.002Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T12:59:02.002Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
+[2022-11-25T12:59:02.002Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 32ms
+[2022-11-25T12:59:02.002Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 57ms
+[2022-11-25T12:59:02.002Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T12:59:02.002Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T12:59:02.002Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T12:59:44.044Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 5548 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T12:59:44.044Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T12:59:45.045Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T12:59:45.045Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+[2022-11-25T12:59:45.045Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T12:59:46.046Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T12:59:46.046Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T12:59:46.046Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T12:59:46.046Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T12:59:46.046Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T12:59:46.046Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T12:59:46.046Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T12:59:47.047Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 3.042 seconds (JVM running for 3.666)
+[2022-11-25T12:59:47.047Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T12:59:47.047Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 17ms
+[2022-11-25T12:59:47.047Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 34ms
+[2022-11-25T12:59:47.047Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T12:59:47.047Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T12:59:47.047Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T14:27:45.045Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 31488 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T14:27:45.045Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T14:27:46.046Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T14:27:46.046Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+[2022-11-25T14:27:46.046Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T14:27:47.047Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T14:27:47.047Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T14:27:47.047Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T14:27:48.048Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T14:27:48.048Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T14:27:48.048Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T14:27:48.048Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:27:48.048Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [98] [WARN ] No datasource was provided...using a Map based JobRepository
+[2022-11-25T14:27:48.048Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [101] [WARN ] No transaction manager was provided, using a ResourcelessTransactionManager
+[2022-11-25T14:27:48.048Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T14:27:48.048Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 3.833 seconds (JVM running for 4.708)
+[2022-11-25T14:27:48.048Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T14:27:48.048Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T14:27:49.049Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T14:27:49.049Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
+[2022-11-25T14:27:49.049Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 23ms
+[2022-11-25T14:27:49.049Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 38ms
+[2022-11-25T14:27:49.049Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:27:49.049Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T14:27:49.049Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T14:31:14.014Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 14396 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T14:31:14.014Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T14:31:15.015Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T14:31:15.015Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+[2022-11-25T14:31:16.016Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T14:31:16.016Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T14:31:16.016Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T14:31:17.017Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T14:31:17.017Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T14:31:17.017Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T14:31:17.017Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T14:31:17.017Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:31:17.017Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [63] [WARN ] No transaction manager was provided, using a DataSourceTransactionManager
+[2022-11-25T14:31:17.017Z] [org.springframework.batch.core.repository.support.JobRepositoryFactoryBean] [main] [185] [INFO ] No database type set, using meta data indicating: MYSQL
+[2022-11-25T14:31:18.018Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T14:31:18.018Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 4.018 seconds (JVM running for 4.8)
+[2022-11-25T14:31:18.018Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T14:31:18.018Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T14:31:18.018Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T14:31:18.018Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [52] [INFO ] Olá, Mundo!
+[2022-11-25T14:31:18.018Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 34ms
+[2022-11-25T14:31:18.018Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 74ms
+[2022-11-25T14:31:18.018Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:31:18.018Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T14:31:18.018Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T14:47:12.012Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 3096 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T14:47:12.012Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T14:47:13.013Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T14:47:13.013Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+[2022-11-25T14:47:13.013Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T14:47:14.014Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T14:47:14.014Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T14:47:14.014Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T14:47:14.014Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T14:47:15.015Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T14:47:15.015Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T14:47:15.015Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:47:15.015Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [63] [WARN ] No transaction manager was provided, using a DataSourceTransactionManager
+[2022-11-25T14:47:15.015Z] [org.springframework.batch.core.repository.support.JobRepositoryFactoryBean] [main] [185] [INFO ] No database type set, using meta data indicating: MYSQL
+[2022-11-25T14:47:15.015Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T14:47:15.015Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 3.727 seconds (JVM running for 4.473)
+[2022-11-25T14:47:15.015Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T14:47:16.016Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T14:47:16.016Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [223] [INFO ] Step already complete or not restartable, so no action to execute: StepExecution: id=1, version=3, name=imprimeOJob, status=COMPLETED, exitStatus=COMPLETED, readCount=0, filterCount=0, writeCount=0 readSkipCount=0, writeSkipCount=0, processSkipCount=0, commitCount=1, rollbackCount=0, exitDescription=
+[2022-11-25T14:47:16.016Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 68ms
+[2022-11-25T14:47:16.016Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:47:16.016Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T14:47:16.016Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T14:51:57.057Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 37852 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T14:51:57.057Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T14:51:58.058Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T14:51:58.058Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+[2022-11-25T14:51:59.059Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T14:51:59.059Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T14:52:00.000Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T14:52:00.000Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T14:52:00.000Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T14:52:00.000Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T14:52:00.000Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T14:52:00.000Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:52:00.000Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [63] [WARN ] No transaction manager was provided, using a DataSourceTransactionManager
+[2022-11-25T14:52:00.000Z] [org.springframework.batch.core.repository.support.JobRepositoryFactoryBean] [main] [185] [INFO ] No database type set, using meta data indicating: MYSQL
+[2022-11-25T14:52:01.001Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T14:52:01.001Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 4.252 seconds (JVM running for 5.032)
+[2022-11-25T14:52:01.001Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T14:52:01.001Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{}]
+[2022-11-25T14:52:01.001Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [223] [INFO ] Step already complete or not restartable, so no action to execute: StepExecution: id=1, version=3, name=imprimeOJob, status=COMPLETED, exitStatus=COMPLETED, readCount=0, filterCount=0, writeCount=0 readSkipCount=0, writeSkipCount=0, processSkipCount=0, commitCount=1, rollbackCount=0, exitDescription=
+[2022-11-25T14:52:01.001Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 23ms
+[2022-11-25T14:52:01.001Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:52:01.001Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T14:52:01.001Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T14:53:24.024Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 30108 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T14:53:24.024Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T14:53:25.025Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T14:53:25.025Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+[2022-11-25T14:53:25.025Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T14:53:26.026Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T14:53:26.026Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T14:53:27.027Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T14:53:27.027Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T14:53:27.027Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T14:53:28.028Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T14:53:28.028Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:53:28.028Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [63] [WARN ] No transaction manager was provided, using a DataSourceTransactionManager
+[2022-11-25T14:53:28.028Z] [org.springframework.batch.core.repository.support.JobRepositoryFactoryBean] [main] [185] [INFO ] No database type set, using meta data indicating: MYSQL
+[2022-11-25T14:53:28.028Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T14:53:28.028Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 5.07 seconds (JVM running for 5.766)
+[2022-11-25T14:53:28.028Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T14:53:28.028Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{run.id=1}]
+[2022-11-25T14:53:28.028Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T14:53:28.028Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [50] [INFO ] Olá, Mundo!
+[2022-11-25T14:53:28.028Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 40ms
+[2022-11-25T14:53:29.029Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{run.id=1}] and the following status: [COMPLETED] in 97ms
+[2022-11-25T14:53:29.029Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:53:29.029Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T14:53:29.029Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2022-11-25T14:54:14.014Z] [org.springframework.boot.StartupInfoLogger] [main] [55] [INFO ] Starting BatchApplication using Java 17.0.1 on DINIZ with PID 20724 (C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch\target\classes started by danie in C:\Users\danie\Documents\Daniel_Diniz\java\Spring-Batch\batch)
+[2022-11-25T14:54:14.014Z] [org.springframework.boot.SpringApplication] [main] [640] [INFO ] The following 1 profile is active: "dev"
+[2022-11-25T14:54:15.015Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-25T14:54:15.015Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [201] [INFO ] Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+[2022-11-25T14:54:15.015Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2022-11-25T14:54:16.016Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-11-25T14:54:16.016Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-25T14:54:16.016Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-25T14:54:16.016Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-25T14:54:16.016Z] [org.hibernate.dialect.Dialect] [main] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-25T14:54:16.016Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-25T14:54:16.016Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:54:16.016Z] [org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer] [main] [63] [WARN ] No transaction manager was provided, using a DataSourceTransactionManager
+[2022-11-25T14:54:16.016Z] [org.springframework.batch.core.repository.support.JobRepositoryFactoryBean] [main] [185] [INFO ] No database type set, using meta data indicating: MYSQL
+[2022-11-25T14:54:17.017Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher] [main] [215] [INFO ] No TaskExecutor has been set, defaulting to synchronous executor.
+[2022-11-25T14:54:17.017Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started BatchApplication in 3.608 seconds (JVM running for 4.368)
+[2022-11-25T14:54:17.017Z] [org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner] [main] [154] [INFO ] Running default command line with: []
+[2022-11-25T14:54:17.017Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [146] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] launched with the following parameters: [{run.id=2}]
+[2022-11-25T14:54:17.017Z] [org.springframework.batch.core.job.SimpleStepHandler] [main] [149] [INFO ] Executing step: [imprimeOJob]
+[2022-11-25T14:54:17.017Z] [br.com.training.batch.batchconfig.BatchConfig$1] [main] [50] [INFO ] Olá, Mundo!
+[2022-11-25T14:54:17.017Z] [org.springframework.batch.core.step.AbstractStep] [main] [273] [INFO ] Step: [imprimeOJob] executed in 40ms
+[2022-11-25T14:54:17.017Z] [org.springframework.batch.core.launch.support.SimpleJobLauncher$1] [main] [152] [INFO ] Job: [SimpleJob: [name=imprimeOJob]] completed with the following parameters: [{run.id=2}] and the following status: [COMPLETED] in 93ms
+[2022-11-25T14:54:17.017Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringApplicationShutdownHook] [651] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-25T14:54:17.017Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2022-11-25T14:54:17.017Z] [com.zaxxer.hikari.HikariDataSource] [SpringApplicationShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
