@@ -1,4 +1,4 @@
-package br.com.training.batch.batchconfig;
+package br.com.training.batch.job;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,33 +29,13 @@ public class BatchConfig extends DefaultBatchConfigurer {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-
     @Bean
-    public Job imprimeOJob(){
+    public Job imprimeOJob(Step imprimeOlaStep){
         return  jobBuilderFactory
                 .get("imprimeOJob")
-                .start(imprimeOlaStep())
+                .start(imprimeOlaStep)
                 .incrementer(new RunIdIncrementer()) // permite a execucao de um job mais de uma vez sempre incrementando novas infos
                 .build();
-    }
-
-    public Step imprimeOlaStep(){
-        return stepBuilderFactory
-                .get("imprimeOJob")
-                .tasklet(imprimeOlaTasklet(null))
-                .build();
-    }
-
-    @Bean // tem que ser um bean disponível para o spring
-    @StepScope // coloca método no contexto para pegar o parametro
-    public Tasklet imprimeOlaTasklet(@Value("#{jobParameters['nome']}") String nome) { // valor é buscado de um parametro quando app inicializa
-        return new Tasklet() {
-            @Override
-            public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                LOGGER.info("Olá, " + nome +  "!");
-                return RepeatStatus.FINISHED;
-            }
-        };
     }
 
 }
