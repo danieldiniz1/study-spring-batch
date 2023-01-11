@@ -29,6 +29,7 @@ public class BatchConfig extends DefaultBatchConfigurer {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
+
     @Bean
     public Job imprimeOJob(Step imprimeOlaStep){
         return  jobBuilderFactory
